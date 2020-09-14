@@ -1,0 +1,1338 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Istio and Ambassador · Ambassador: open source API Gateway for microservices and Kubernetes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="tls-termination.html" />
+    
+
+    </head>
+    <body>
+        
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TPMQ838" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TPMQ838');
+    </script>
+    
+<div class="book">
+    <div class="book-summary">
+        
+<a href="/" class="logo__link">
+    <img class="logo" src="/images/ambassador-logo.svg" alt="logo">
+</a>
+
+
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="https://blog.getambassador.io">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../about/why-ambassador.html">
+            
+                <a href="../about/why-ambassador.html">
+            
+                    
+                    Why Ambassador?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../about/features-and-benefits.html">
+            
+                <a href="../about/features-and-benefits.html">
+            
+                    
+                    Features and Benefits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    Installing Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="getting-started.html">
+            
+                <a href="getting-started.html">
+            
+                    
+                    Kubernetes (YAML)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="helm.html">
+            
+                <a href="helm.html">
+            
+                    
+                    Kubernetes (Helm)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../about/quickstart.html">
+            
+                <a href="../about/quickstart.html">
+            
+                    
+                    Docker Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="docker-compose.html">
+            
+                <a href="docker-compose.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../concepts/developers.html">
+            
+                <a href="../concepts/developers.html">
+            
+                    
+                    Decentralized configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../concepts/architecture.html">
+            
+                <a href="../concepts/architecture.html">
+            
+                    
+                    Ambassador Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/envoy-vs-nginx-vs-haproxy-why-the-open-source-ambassador-api-gateway-chose-envoy-23826aed79ef">
+            
+                    
+                    Why Ambassador uses Envoy Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../about/microservices-api-gateways.html">
+            
+                <a href="../about/microservices-api-gateways.html">
+            
+                    
+                    Microservices API Gateways
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../concepts/using-ambassador-in-org.html">
+            
+                <a href="../concepts/using-ambassador-in-org.html">
+            
+                    
+                    Using Ambassador in your organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="auth-tutorial.html">
+            
+                <a href="auth-tutorial.html">
+            
+                    
+                    Adding Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="rate-limiting-tutorial.html">
+            
+                <a href="rate-limiting-tutorial.html">
+            
+                    
+                    Adding Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="tracing-tutorial.html">
+            
+                <a href="tracing-tutorial.html">
+            
+                    
+                    Adding Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="grpc.html">
+            
+                <a href="grpc.html">
+            
+                    
+                    Use gRPC with Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="tls-termination.html">
+            
+                <a href="tls-termination.html">
+            
+                    
+                    TLS Termination
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6" data-path="with-istio.html">
+            
+                <a href="with-istio.html">
+            
+                    
+                    Istio and Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/howto/home">
+            
+                    
+                    More guides
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reference/configuration.html">
+            
+                <a href="../reference/configuration.html">
+            
+                    
+                    Configuring Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reference/modules.html">
+            
+                <a href="../reference/modules.html">
+            
+                    
+                    Core Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../reference/core/tls.html">
+            
+                <a href="../reference/core/tls.html">
+            
+                    
+                    TLS and X-Forwarded-Proto
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../reference/mappings.html">
+            
+                <a href="../reference/mappings.html">
+            
+                    
+                    Configuring Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="../reference/canary.html">
+            
+                <a href="../reference/canary.html">
+            
+                    
+                    Canary Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="../reference/cors.html">
+            
+                <a href="../reference/cors.html">
+            
+                    
+                    Cross Origin Resource Sharing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="../reference/override.html">
+            
+                <a href="../reference/override.html">
+            
+                    
+                    Custom Envoy config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="../reference/headers.html">
+            
+                <a href="../reference/headers.html">
+            
+                    
+                    Header-based routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.5" data-path="../reference/host.html">
+            
+                <a href="../reference/host.html">
+            
+                    
+                    Host Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.6" data-path="../reference/rate-limits.html">
+            
+                <a href="../reference/rate-limits.html">
+            
+                    
+                    Rate Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.7" data-path="../reference/redirects.html">
+            
+                <a href="../reference/redirects.html">
+            
+                    
+                    Redirects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.8" data-path="../reference/add_request_headers.html">
+            
+                <a href="../reference/add_request_headers.html">
+            
+                    
+                    Request Headers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.9" data-path="../reference/rewrites.html">
+            
+                <a href="../reference/rewrites.html">
+            
+                    
+                    Rewrites
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.10" data-path="../reference/shadowing.html">
+            
+                <a href="../reference/shadowing.html">
+            
+                    
+                    Traffic Shadowing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../reference/services/services.html">
+            
+                <a href="../reference/services/services.html">
+            
+                    
+                    External Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="../reference/services/auth-service.html">
+            
+                <a href="../reference/services/auth-service.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="../reference/services/rate-limit-service.html">
+            
+                <a href="../reference/services/rate-limit-service.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.3" data-path="../reference/services/tracing-service.html">
+            
+                <a href="../reference/services/tracing-service.html">
+            
+                    
+                    Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../reference/advanced.html">
+            
+                <a href="../reference/advanced.html">
+            
+                    
+                    Advanced configuration topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../reference/running.html">
+            
+                <a href="../reference/running.html">
+            
+                    
+                    Running Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../reference/diagnostics.html">
+            
+                <a href="../reference/diagnostics.html">
+            
+                    
+                    Diagnostics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../reference/ambassador-with-aws.html">
+            
+                <a href="../reference/ambassador-with-aws.html">
+            
+                    
+                    Ambassador with AWS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../reference/upgrading.html">
+            
+                <a href="../reference/upgrading.html">
+            
+                    
+                    Upgrading Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../reference/statistics.html">
+            
+                <a href="../reference/statistics.html">
+            
+                    
+                    Statistics and Monitoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/BUILDING.md">
+            
+                    
+                    Building Ambassador (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/CHANGELOG.md">
+            
+                    
+                    Changelog (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Need Help?</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <a target="_blank" href="https://d6e.co/slack">
+            
+                    
+                    Ask on Slack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/issues/new">
+            
+                    
+                    File a GitHub Issue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" >
+            
+                <a target="_blank" href="https://www.datawire.io">
+            
+                    
+                    Visit Datawire.io
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Istio and Ambassador</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+<a id="datawire-breadcrumb" href="https://datawire.io/learn/open-source-docs">
+    ← Back to Datawire Open Source Documentation
+</a>
+
+                                <h1 id="ambassador-and-istio-edge-proxy-and-service-mesh">Ambassador and Istio: Edge Proxy and Service Mesh</h1>
+<hr>
+<p>Ambassador is a Kubernetes-native API gateway for microservices. Ambassador is deployed at the edge of your network, and routes incoming traffic to your internal services (aka &quot;north-south&quot; traffic).  <a href="https://istio.io/" target="_blank">Istio</a> is a service mesh for microservices, and is designed to add application-level Layer (L7) observability, routing, and resilience to service-to-service traffic (aka &quot;east-west&quot; traffic). Both Istio and Ambassador are built using <a href="https://www.envoyproxy.io" target="_blank">Envoy</a>.</p>
+<p>Ambassador and Istio can be deployed together on Kubernetes. In this configuration, incoming traffic from outside the cluster is first routed through Ambassador, which then routes the traffic to Istio-powered services. Ambassador handles authentication, edge routing, TLS termination, and other traditional edge functions.</p>
+<p>This allows the operator to have the best of both worlds: a high performance, modern edge service (Ambassador) combined with a state-of-the-art service mesh (Istio). Istio&apos;s basic <a href="https://istio.io/docs/tasks/traffic-management/ingress.html" target="_blank">ingress controller</a> is very limited, and has no support for authentication or many of the other features of Ambassador.</p>
+<h2 id="getting-ambassador-working-with-istio">Getting Ambassador Working With Istio</h2>
+<p>Getting Ambassador working with Istio is straightforward. In this example, we&apos;ll use the <code>bookinfo</code> sample application from Istio.</p>
+<ol>
+<li>Install Istio on Kubernetes, following <a href="https://istio.io/docs/setup/kubernetes/quick-start.html" target="_blank">the default instructions</a> (without using mutual TLS auth between sidecars)</li>
+<li>Next, install the Bookinfo sample application, following the <a href="https://istio.io/docs/guides/bookinfo.html" target="_blank">instructions</a>.</li>
+<li>Verify that the sample application is working as expected.</li>
+</ol>
+<p>By default, the Bookinfo application uses the Istio ingress. To use Ambassador, we need to:</p>
+<ol>
+<li>Install Ambassador.</li>
+</ol>
+<p>First you will need to deploy the Ambassador ambassador-admin service to your cluster:</p>
+<p>It&apos;s simplest to use the YAML files we have online for this (though of course you can download them and use them locally if you prefer!).</p>
+<p>First, you need to check if Kubernetes has RBAC enabled:</p>
+<pre><code class="lang-shell">kubectl cluster-info dump --namespace kube-system | grep authorization-mode
+</code></pre>
+<p>If you see something like <code>--authorization-mode=Node,RBAC</code> in the output, then RBAC is enabled.</p>
+<p>If RBAC is enabled, you&apos;ll need to use:</p>
+<pre><code class="lang-shell">kubectl apply -f https://getambassador.io/yaml/ambassador/ambassador-rbac.yaml
+</code></pre>
+<p>Without RBAC, you can use:</p>
+<pre><code class="lang-shell">kubectl apply -f https://getambassador.io/yaml/ambassador/ambassador-no-rbac.yaml
+</code></pre>
+<p>(Note that if you are planning to use mutual TLS for communication between Ambassador and Istio/services in the future, then the order in which you deploy the ambassador-admin service and the ambassador LoadBalancer service below may need to be swapped)</p>
+<p>Next you will deploy an ambassador service that acts as a point of ingress into the cluster via the LoadBalancer type. Create the following YAML and put it in a file called <code>ambassador-service.yaml</code>.</p>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    service:</span> ambassador
+<span class="hljs-attr">  name:</span> ambassador
+<span class="hljs-attr">  annotations:</span>
+    getambassador.io/config: <span class="hljs-string">|
+      ---
+</span><span class="hljs-attr">      apiVersion:</span> ambassador/v0
+<span class="hljs-attr">      kind:</span>  Mapping
+<span class="hljs-attr">      name:</span>  httpbin_mapping
+<span class="hljs-attr">      prefix:</span> /httpbin/
+<span class="hljs-attr">      service:</span> httpbin.org:<span class="hljs-number">80</span>
+<span class="hljs-attr">      host_rewrite:</span> httpbin.org
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  type:</span> LoadBalancer
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">  - name:</span> ambassador
+<span class="hljs-attr">    port:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">    targetPort:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    service:</span> ambassador
+</code></pre>
+<p>Then, apply it to the Kubernetes with <code>kubectl</code>:</p>
+<pre><code class="lang-shell">kubectl apply -f ambassador-service.yaml
+</code></pre>
+<p>The YAML above does several things:</p>
+<ul>
+<li>It creates a Kubernetes service for Ambassador, of type <code>LoadBalancer</code>. Note that if you&apos;re not deploying in an environment where <code>LoadBalancer</code> is a supported type (i.e. MiniKube), you&apos;ll need to change this to a different type of service, e.g., <code>NodePort</code>.</li>
+<li>It creates a test route that will route traffic from <code>/httpbin/</code> to the public <code>httpbin.org</code> HTTP Request and Response service (which provides useful endpoint that can be used for diagnostic purposes). In Ambassador, Kubernetes annotations (as shown above) are used for configuration. More commonly, you&apos;ll want to configure routes as part of your service deployment process, as shown in <a href="https://www.datawire.io/faster/canary-workflow/" target="_blank">this more advanced example</a>.</li>
+</ul>
+<p>You can see if the two Ambassador services are running correctly (and also obtain the LoadBalancer IP address when this is assigned after a few minutes) by executing the following commands:</p>
+<pre><code class="lang-shell">$ kubectl get services
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+ambassador         LoadBalancer   10.63.247.1     35.224.41.XX     80:32171/TCP     11m
+ambassador-admin   NodePort       10.63.250.17    &lt;none&gt;           8877:32107/TCP   12m
+details            ClusterIP      10.63.241.224   &lt;none&gt;           9080/TCP         16m
+kubernetes         ClusterIP      10.63.240.1     &lt;none&gt;           443/TCP          24m
+productpage        ClusterIP      10.63.248.184   &lt;none&gt;           9080/TCP         16m
+ratings            ClusterIP      10.63.255.72    &lt;none&gt;           9080/TCP         16m
+reviews            ClusterIP      10.63.252.192   &lt;none&gt;           9080/TCP         16m
+
+$ kubectl get pods
+NAME                             READY     STATUS    RESTARTS   AGE
+ambassador-2680035017-092rk      2/2       Running   0          13m
+ambassador-2680035017-9mr97      2/2       Running   0          13m
+ambassador-2680035017-thcpr      2/2       Running   0          13m
+details-v1-3842766915-3bjwx      2/2       Running   0          17m
+productpage-v1-449428215-dwf44   2/2       Running   0          16m
+ratings-v1-555398331-80zts       2/2       Running   0          17m
+reviews-v1-217127373-s3d91       2/2       Running   0          17m
+reviews-v2-2104781143-2nxqf      2/2       Running   0          16m
+reviews-v3-3240307257-xl1l6      2/2       Running   0          16m
+</code></pre>
+<p>Above we see that external IP assigned to our LoadBalancer is 35.224.41.XX (XX is used to mask the actual value), and that all ambassador pods are running (Ambassador relies on Kubernetes to provide high availability, and so there should be two small pods running on each node within the cluster).</p>
+<p>You can test if Ambassador has been installed correctly by using the test route to <code>httpbin.org</code> to get the external cluster <a href="https://httpbin.org/ip" target="_blank">Origin IP</a> from which the request was made:</p>
+<pre><code class="lang-shell">$ curl 35.224.41.XX/httpbin/ip
+{
+  &quot;origin&quot;: &quot;35.192.109.XX&quot;
+}
+</code></pre>
+<p>If you&apos;re seeing a similar response, then everything is working great!</p>
+<p>(Bonus: If you want to use a little bit of awk magic to export the LoadBalancer IP to a variable AMBASSADOR_IP, then you can type <code>export AMBASSADOR_IP=$(kubectl get services ambassador | tail -1 | awk &apos;{ print $4 }&apos;)</code> and use <code>curl $AMBASSADOR_IP/httpbin/ip</code></p>
+<ol>
+<li>Now you are going to modify the bookinfo demo <code>bookinfo.yaml</code> manifest to include the necessary Ambassador annotations. See below.</li>
+</ol>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind: Mapping
+      name: productpage_mapping
+      prefix: /productpage/
+      rewrite: /productpage
+      service: productpage:9080
+spec:
+  ports:
+  - port: 9080
+    name: http
+  selector:
+    app: productpage
+</code></pre><p>The annotation above implements an Ambassador mapping from the &apos;/productpage/&apos; URI to the Kubernetes productpage service running on port 9080 (&apos;productpage:9080&apos;). The &apos;prefix&apos; mapping URI is taken from the context of the root of your Ambassador service that is acting as the ingress point (exposed externally via port 80 because it is a LoadBalancer) e.g. &apos;35.224.41.XX/productpage/&apos;.</p>
+<p>You can now apply this manifest from the root of the Istio GitHub repo on your local file system (taking care to wrap the apply with istioctl kube-inject):</p>
+<pre><code class="lang-shell">kubectl apply -f &lt;(istioctl kube-inject -f samples/bookinfo/kube/bookinfo.yaml)
+</code></pre>
+<ol>
+<li><p>Optionally, delete the Ingress controller from the <code>bookinfo.yaml</code> manifest by typing <code>kubectl delete ingress gateway</code>.</p>
+</li>
+<li><p>Test Ambassador by going to the IP of the Ambassador LoadBalancer you configured above e.g. <code>35.192.109.XX/productpage/</code>. You can see the actual IP address again for Ambassador by typing <code>kubectl get services ambassador</code>.</p>
+</li>
+</ol>
+<h2 id="automatic-sidecar-injection">Automatic Sidecar Injection</h2>
+<p>Newer versions of Istio support Kubernetes initializers to <a href="https://istio.io/docs/setup/kubernetes/sidecar-injection.html#automatic-sidecar-injection" target="_blank">automatically inject the Istio sidecar</a>. You don&apos;t need to inject the Istio sidecar into Ambassador&apos;s pods -- Ambassador&apos;s Envoy instance will automatically route to the appropriate service(s). Ambassador&apos;s pods are configured to skip sidecar injection, using an annotation as <a href="https://istio.io/docs/setup/kubernetes/sidecar-injection.html#policy" target="_blank">explained in the documentation</a>.</p>
+<h2 id="istio-mutual-tls">Istio Mutual TLS</h2>
+<p>In case Istio mutual TLS is enabled on the cluster, the mapping outlined above will not function correctly as the Istio sidecar will intercept the connections and the service will only be reachable via <code>https</code> using the Istio managed certificates, which are available in each namespace via the <code>istio.default</code> secret. To get the proxy working we need to tell Ambassador to use those certificates when communicating with Istio enabled service. To do this we need to modify the Ambassador deployment installed above.</p>
+<p>In case of RBAC:</p>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> extensions/v1beta1
+<span class="hljs-attr">kind:</span> Deployment
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> ambassador
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  replicas:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      annotations:</span>
+        sidecar.istio.io/inject: <span class="hljs-string">&quot;false&quot;</span>
+<span class="hljs-attr">      labels:</span>
+<span class="hljs-attr">        service:</span> ambassador
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      serviceAccountName:</span> ambassador
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span> ambassador
+<span class="hljs-attr">        image:</span> quay.io/datawire/ambassador:<span class="hljs-number">0.33</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">        resources:</span>
+<span class="hljs-attr">          limits:</span>
+<span class="hljs-attr">            cpu:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">            memory:</span> <span class="hljs-number">400</span>Mi
+<span class="hljs-attr">          requests:</span>
+<span class="hljs-attr">            cpu:</span> <span class="hljs-number">200</span>m
+<span class="hljs-attr">            memory:</span> <span class="hljs-number">100</span>Mi
+<span class="hljs-attr">        env:</span>
+<span class="hljs-attr">        - name:</span> AMBASSADOR_NAMESPACE
+<span class="hljs-attr">          valueFrom:</span>
+<span class="hljs-attr">            fieldRef:</span>
+<span class="hljs-attr">              fieldPath:</span> metadata.namespace          
+<span class="hljs-attr">        livenessProbe:</span>
+<span class="hljs-attr">          httpGet:</span>
+<span class="hljs-attr">            path:</span> /ambassador/v0/check_alive
+<span class="hljs-attr">            port:</span> <span class="hljs-number">8877</span>
+<span class="hljs-attr">          initialDelaySeconds:</span> <span class="hljs-number">30</span>
+<span class="hljs-attr">          periodSeconds:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">        readinessProbe:</span>
+<span class="hljs-attr">          httpGet:</span>
+<span class="hljs-attr">            path:</span> /ambassador/v0/check_ready
+<span class="hljs-attr">            port:</span> <span class="hljs-number">8877</span>
+<span class="hljs-attr">          initialDelaySeconds:</span> <span class="hljs-number">30</span>
+<span class="hljs-attr">          periodSeconds:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">        volumeMounts:</span>
+<span class="hljs-attr">          - mountPath:</span> /etc/istiocerts/
+<span class="hljs-attr">            name:</span> istio-certs
+<span class="hljs-attr">            readOnly:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">      - name:</span> statsd
+<span class="hljs-attr">        image:</span> quay.io/datawire/statsd:<span class="hljs-number">0.33</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">      restartPolicy:</span> Always
+<span class="hljs-attr">      volumes:</span>
+<span class="hljs-attr">      - name:</span> istio-certs
+<span class="hljs-attr">        secret:</span>
+<span class="hljs-attr">          optional:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">          secretName:</span> istio.default
+</code></pre>
+<p>Specifically note the mounting of the Istio secrets. For non RBAC cluster modify accordingly. Next we need to modify the Ambassador configuration to tell it use the new certificates for Istio enabled services:</p>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    service:</span> ambassador
+<span class="hljs-attr">  name:</span> ambassador
+<span class="hljs-attr">  annotations:</span>
+    getambassador.io/config: <span class="hljs-string">|
+      ---
+</span><span class="hljs-attr">      apiVersion:</span> ambassador/v0
+<span class="hljs-attr">      kind:</span>  Mapping
+<span class="hljs-attr">      name:</span>  httpbin_mapping
+<span class="hljs-attr">      prefix:</span> /httpbin/
+<span class="hljs-attr">      service:</span> httpbin.org:<span class="hljs-number">80</span>
+<span class="hljs-attr">      host_rewrite:</span> httpbin.org
+<span class="hljs-bullet">      -</span>--
+<span class="hljs-attr">      apiVersion:</span> ambassador/v0
+<span class="hljs-attr">      kind:</span>  Module
+<span class="hljs-attr">      name:</span> tls
+<span class="hljs-attr">      config:</span>
+<span class="hljs-attr">        server:</span>
+<span class="hljs-attr">          enabled:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">          redirect_cleartext_from:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">        client:</span>
+<span class="hljs-attr">          enabled:</span> <span class="hljs-literal">False</span>
+<span class="hljs-attr">        upstream:</span>
+<span class="hljs-attr">          cert_chain_file:</span> /etc/istiocerts/cert-chain.pem
+<span class="hljs-attr">          private_key_file:</span> /etc/istiocerts/key.pem
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  type:</span> LoadBalancer
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">  - name:</span> ambassador
+<span class="hljs-attr">    port:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">    targetPort:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    service:</span> ambassador
+</code></pre>
+<p>This will define an <code>upstream</code> that uses the Istio certificates. We can now reuse the <code>upstream</code> in all Ambassador mappings to enable communication with Istio pods.</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> productpage
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> productpage
+<span class="hljs-attr">  annotations:</span>
+    getambassador.io/config: <span class="hljs-string">|
+      ---
+</span><span class="hljs-attr">      apiVersion:</span> ambassador/v0
+<span class="hljs-attr">      kind:</span> Mapping
+<span class="hljs-attr">      name:</span> productpage_mapping
+<span class="hljs-attr">      prefix:</span> /productpage/
+<span class="hljs-attr">      rewrite:</span> /productpage
+<span class="hljs-attr">      tls:</span> upstream
+<span class="hljs-attr">      service:</span> productpage:<span class="hljs-number">9080</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">  - port:</span> <span class="hljs-number">9080</span>
+<span class="hljs-attr">    name:</span> http
+<span class="hljs-attr">    protocol:</span> TCP
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    app:</span> productpage
+</code></pre>
+<p>Note the <code>tls: upstream</code>, which lets Ambassador know which certificate to use when communicating with that service.</p>
+<p>In the definition above we also have TLS termination enabled; please see <a href="https://www.getambassador.io/user-guide/tls-termination" target="_blank">the TLS termination tutorial</a> for more details.</p>
+<h2 id="tracing-integration">Tracing Integration</h2>
+<p>Istio provides a tracing mechanism based on Zipkin, which is one of the drivers supported by Ambassador. In order to achieve an end-to-end tracing, it is possible to integrate Ambassador with Istio&apos;s Zipkin.<br>First confirm that Istio&apos;s Zipkin is up and running in the <code>istio-system</code> Namespace:</p>
+<pre><code class="lang-shell">$ kubectl get service zipkin -n istio-system
+NAME      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+zipkin    ClusterIP   10.102.146.104   &lt;none&gt;        9411/TCP   7m
+</code></pre>
+<p>If Istio&apos;s Zipkin is up &amp; running on <code>istio-system</code> Namespace, add the <code>TracingService</code> annotation pointing to it:</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">  annotations:</span>
+    getambassador.io/config: <span class="hljs-string">|
+      ---
+</span><span class="hljs-attr">      apiVersion:</span> ambassador/v0
+<span class="hljs-attr">      kind:</span> TracingService
+<span class="hljs-attr">      name:</span> tracing
+<span class="hljs-attr">      service:</span> <span class="hljs-string">&quot;zipkin.istio-system:9411&quot;</span>
+<span class="hljs-attr">      driver:</span> zipkin
+<span class="hljs-attr">      config:</span> {}
+</code></pre>
+<p><em>Note:</em> We are using the DNS entry <code>zipkin.istio-system</code> as well as the port that our service is running, in this case <code>9411</code>.<br>Please see <a href="https://www.getambassador.io/reference/services/tracing-service" target="_blank">Distributed Tracing</a> for more details on Tracing configuration.</p>
+<h2 id="monitoringstatistics-integration">Monitoring/Statistics Integration</h2>
+<p>Istio also provides a Prometheus service that is an open-source monitoring and alerting system which is supported by Ambassador as well. It is possible to integrate Ambassador into Istio&apos;s Prometheus to have all statistics and monitoring in a single place.  </p>
+<p>First we need to change our Ambassador Deployment to use the <a href="https://github.com/prometheus/statsd_exporter" target="_blank">Prometheus StatsD Exporter</a> as its sidecar. Do this by applying the <a href="https://www.getambassador.io/yaml/ambassador/ambassador-rbac-prometheus.yaml" target="_blank">ambassador-rbac-prometheus.yaml</a>:</p>
+<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> https://www.getambassador.io/yaml/ambassador/ambassador-rbac-prometheus.yaml
+</code></pre>
+<p>This YAML is changing the StatsD container definition on our Deployment to use the Prometheus StatsD Exporter as a sidecar:</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">      - name:</span> statsd-sink
+<span class="hljs-attr">        image:</span> datawire/prom-statsd-exporter:<span class="hljs-number">0.6</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">      restartPolicy:</span> Always
+</code></pre>
+<p>Next, a Service needs to be created pointing to our <code>Prometheus StatsD Exporter</code> sidecar:</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> ambassador-monitor
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> ambassador
+<span class="hljs-attr">    service:</span> ambassador-monitor
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  type:</span> ClusterIP
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">   - port:</span> <span class="hljs-number">9102</span>
+<span class="hljs-attr">     name:</span> prometheus-metrics
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    service:</span> ambassador
+</code></pre>
+<p>Now we need to add a <code>scrape</code> configuration to Istio&apos;s Prometheus so that it can pool data from our Ambassador. This is done by applying the new ConfigMap:</p>
+<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> https://www.getambassador.io/yaml/ambassador/ambassador-istio-configmap.yaml
+</code></pre>
+<p>This ConfigMap YAML changes the <code>prometheus</code> ConfigMap that is on <code>istio-system</code> Namespace and adds the following:</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">    - job_name:</span> <span class="hljs-string">&apos;ambassador&apos;</span>
+<span class="hljs-attr">      static_configs:</span>
+<span class="hljs-attr">      - targets:</span> [<span class="hljs-string">&apos;ambassador-monitor.default:9102&apos;</span>]
+<span class="hljs-attr">        labels:</span>  {<span class="hljs-string">&apos;application&apos;</span>: <span class="hljs-string">&apos;ambassador&apos;</span>}
+</code></pre>
+<p><em>Note:</em> Assuming ambassador-monitor service is runnning in default namespace.  </p>
+<p><em>Note:</em> You can also add the scrape by hand by using kubectl edit or dashboard.</p>
+<p>Afer adding the <code>scrape</code>, Istio&apos;s Prometheus POD needs to be restarted:</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">export</span> PROMETHEUS_POD=`kubectl get pods -n istio-system | grep prometheus | awk <span class="hljs-string">&apos;{print $1}&apos;</span>`
+$ kubectl delete pod <span class="hljs-variable">$PROMETHEUS_POD</span> -n istio-system
+</code></pre>
+<p>More details can be found in <a href="https://www.getambassador.io/reference/statistics" target="_blank">Statistics and Monitoring</a>.</p>
+<h2 id="grafana-dashboard">Grafana Dashboard</h2>
+<p>Istio provides a Grafana dashboad service as well, and it is possible to import an Ambassador Dashboard into it, to monitor the Statistics provided by Prometheus. We&apos;re going to use <a href="https://twitter.com/alex_gervais" target="_blank">Alex Gervais&apos;</a> template available on <a href="https://grafana.com/" target="_blank">Grafana&apos;s</a> website under entry <a href="https://grafana.com/dashboards/4698" target="_blank">4689</a> as a starting point.  </p>
+<p>First let&apos;s start the port-forwarding for Istio&apos;s Grafana service:</p>
+<pre><code class="lang-sh">$ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod <span class="hljs-_">-l</span> app=grafana -o jsonpath=<span class="hljs-string">&apos;{.items[0].metadata.name}&apos;</span>) 3000:3000 &amp;
+</code></pre>
+<p>Now, open Grafana tool by acessing: <code>http://localhost:3000/</code></p>
+<p>To install Ambassador Dashboard:</p>
+<ul>
+<li>Click on Create  </li>
+<li>Select Import  </li>
+<li>Enter number 4698  </li>
+</ul>
+<p>Now we need to adjust the Dashboard Port to reflect our Ambassador configuration:</p>
+<ul>
+<li>Open the Imported Dashboard</li>
+<li>Click on Settings in the Top Right corner</li>
+<li>Click on Variables</li>
+<li>Change the port to 80 (according to the ambassador service port)</li>
+</ul>
+<p>Next, adjust the Dashboard Registered Services metric:</p>
+<ul>
+<li>Open the Imported Dashboard</li>
+<li>Find Registered Services</li>
+<li>Click on the down arrow and select Edit</li>
+<li>Change the Metric to:<pre><code class="lang-yaml">envoy_cluster_manager_active_clusters{job=<span class="hljs-string">&quot;ambassador&quot;</span>}
+</code></pre>
+</li>
+</ul>
+<p>Now lets save the changes:</p>
+<ul>
+<li>Click on Save Dashboard in the Top Right corner</li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<p>There are a number of roadmap items that we&apos;d like to tackle in improving Istio integration. This includes supporting Istio routing rules in Ambassador and full propagation of request headers (e.g., Zipkin tracing) between Ambassador and Istio. If you&apos;re interested in contributing, we&apos;d welcome the help!</p>
+
+                                
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tls-termination.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: TLS Termination">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Istio and Ambassador","level":"4.6","depth":1,"next":{"title":"More guides","level":"4.7","depth":1,"url":"https://blog.getambassador.io/howto/home","ref":"https://blog.getambassador.io/howto/home","articles":[]},"previous":{"title":"TLS Termination","level":"4.5","depth":1,"path":"user-guide/tls-termination.md","ref":"user-guide/tls-termination.md","articles":[]},"dir":"ltr"},"config":{"plugins":["gtm","anchorjs"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-TPMQ838","virtualPageViews":true},"search":{},"layout":{"footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{"selector":"h2,h3,h4,h5","placement":"right","visible":"always","truncate":64,"ariaLabel":"Anchor"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INDEX.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ambassador: open source API Gateway for microservices and Kubernetes","gitbook":"*"},"file":{"path":"user-guide/with-istio.md","mtime":"2020-08-25T18:44:25.448Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-14T18:10:30.972Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-gtm/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="/js/datawire-breadcrumb.js" type="text/javascript"></script>
+
+    </body>
+</html>
+

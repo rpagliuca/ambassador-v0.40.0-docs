@@ -1,0 +1,1126 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>TLS Termination · Ambassador: open source API Gateway for microservices and Kubernetes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="with-istio.html" />
+    
+    
+    <link rel="prev" href="grpc.html" />
+    
+
+    </head>
+    <body>
+        
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TPMQ838" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TPMQ838');
+    </script>
+    
+<div class="book">
+    <div class="book-summary">
+        
+<a href="/" class="logo__link">
+    <img class="logo" src="/images/ambassador-logo.svg" alt="logo">
+</a>
+
+
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="https://blog.getambassador.io">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../about/why-ambassador.html">
+            
+                <a href="../about/why-ambassador.html">
+            
+                    
+                    Why Ambassador?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../about/features-and-benefits.html">
+            
+                <a href="../about/features-and-benefits.html">
+            
+                    
+                    Features and Benefits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    Installing Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="getting-started.html">
+            
+                <a href="getting-started.html">
+            
+                    
+                    Kubernetes (YAML)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="helm.html">
+            
+                <a href="helm.html">
+            
+                    
+                    Kubernetes (Helm)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../about/quickstart.html">
+            
+                <a href="../about/quickstart.html">
+            
+                    
+                    Docker Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="docker-compose.html">
+            
+                <a href="docker-compose.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../concepts/developers.html">
+            
+                <a href="../concepts/developers.html">
+            
+                    
+                    Decentralized configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../concepts/architecture.html">
+            
+                <a href="../concepts/architecture.html">
+            
+                    
+                    Ambassador Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/envoy-vs-nginx-vs-haproxy-why-the-open-source-ambassador-api-gateway-chose-envoy-23826aed79ef">
+            
+                    
+                    Why Ambassador uses Envoy Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../about/microservices-api-gateways.html">
+            
+                <a href="../about/microservices-api-gateways.html">
+            
+                    
+                    Microservices API Gateways
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../concepts/using-ambassador-in-org.html">
+            
+                <a href="../concepts/using-ambassador-in-org.html">
+            
+                    
+                    Using Ambassador in your organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="auth-tutorial.html">
+            
+                <a href="auth-tutorial.html">
+            
+                    
+                    Adding Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="rate-limiting-tutorial.html">
+            
+                <a href="rate-limiting-tutorial.html">
+            
+                    
+                    Adding Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="tracing-tutorial.html">
+            
+                <a href="tracing-tutorial.html">
+            
+                    
+                    Adding Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="grpc.html">
+            
+                <a href="grpc.html">
+            
+                    
+                    Use gRPC with Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.5" data-path="tls-termination.html">
+            
+                <a href="tls-termination.html">
+            
+                    
+                    TLS Termination
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="with-istio.html">
+            
+                <a href="with-istio.html">
+            
+                    
+                    Istio and Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/howto/home">
+            
+                    
+                    More guides
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reference/configuration.html">
+            
+                <a href="../reference/configuration.html">
+            
+                    
+                    Configuring Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reference/modules.html">
+            
+                <a href="../reference/modules.html">
+            
+                    
+                    Core Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../reference/core/tls.html">
+            
+                <a href="../reference/core/tls.html">
+            
+                    
+                    TLS and X-Forwarded-Proto
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../reference/mappings.html">
+            
+                <a href="../reference/mappings.html">
+            
+                    
+                    Configuring Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="../reference/canary.html">
+            
+                <a href="../reference/canary.html">
+            
+                    
+                    Canary Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="../reference/cors.html">
+            
+                <a href="../reference/cors.html">
+            
+                    
+                    Cross Origin Resource Sharing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="../reference/override.html">
+            
+                <a href="../reference/override.html">
+            
+                    
+                    Custom Envoy config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="../reference/headers.html">
+            
+                <a href="../reference/headers.html">
+            
+                    
+                    Header-based routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.5" data-path="../reference/host.html">
+            
+                <a href="../reference/host.html">
+            
+                    
+                    Host Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.6" data-path="../reference/rate-limits.html">
+            
+                <a href="../reference/rate-limits.html">
+            
+                    
+                    Rate Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.7" data-path="../reference/redirects.html">
+            
+                <a href="../reference/redirects.html">
+            
+                    
+                    Redirects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.8" data-path="../reference/add_request_headers.html">
+            
+                <a href="../reference/add_request_headers.html">
+            
+                    
+                    Request Headers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.9" data-path="../reference/rewrites.html">
+            
+                <a href="../reference/rewrites.html">
+            
+                    
+                    Rewrites
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.10" data-path="../reference/shadowing.html">
+            
+                <a href="../reference/shadowing.html">
+            
+                    
+                    Traffic Shadowing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../reference/services/services.html">
+            
+                <a href="../reference/services/services.html">
+            
+                    
+                    External Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="../reference/services/auth-service.html">
+            
+                <a href="../reference/services/auth-service.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="../reference/services/rate-limit-service.html">
+            
+                <a href="../reference/services/rate-limit-service.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.3" data-path="../reference/services/tracing-service.html">
+            
+                <a href="../reference/services/tracing-service.html">
+            
+                    
+                    Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../reference/advanced.html">
+            
+                <a href="../reference/advanced.html">
+            
+                    
+                    Advanced configuration topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../reference/running.html">
+            
+                <a href="../reference/running.html">
+            
+                    
+                    Running Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../reference/diagnostics.html">
+            
+                <a href="../reference/diagnostics.html">
+            
+                    
+                    Diagnostics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../reference/ambassador-with-aws.html">
+            
+                <a href="../reference/ambassador-with-aws.html">
+            
+                    
+                    Ambassador with AWS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../reference/upgrading.html">
+            
+                <a href="../reference/upgrading.html">
+            
+                    
+                    Upgrading Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../reference/statistics.html">
+            
+                <a href="../reference/statistics.html">
+            
+                    
+                    Statistics and Monitoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/BUILDING.md">
+            
+                    
+                    Building Ambassador (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/CHANGELOG.md">
+            
+                    
+                    Changelog (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Need Help?</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <a target="_blank" href="https://d6e.co/slack">
+            
+                    
+                    Ask on Slack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/issues/new">
+            
+                    
+                    File a GitHub Issue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" >
+            
+                <a target="_blank" href="https://www.datawire.io">
+            
+                    
+                    Visit Datawire.io
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >TLS Termination</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+<a id="datawire-breadcrumb" href="https://datawire.io/learn/open-source-docs">
+    ← Back to Datawire Open Source Documentation
+</a>
+
+                                <h1 id="tls-termination">TLS Termination</h1>
+<p>To enable TLS termination for Ambassador you&apos;ll need a few things:</p>
+<ol>
+<li>You&apos;ll need a TLS certificate.</li>
+<li>For any production use, you&apos;ll need a DNS record that matches your TLS certificate&apos;s <code>Common Name</code>.</li>
+<li>You&apos;ll need to store the certificate in a Kubernetes <code>secret</code>.</li>
+<li>You may need to configure other Ambassador TLS options using the <code>tls</code> module.</li>
+</ol>
+<p>All these requirements mean that it&apos;s easiest to decide to enable TLS <em>before</em> you configure Ambassador the first time. It&apos;s possible to switch after setting up Ambassador, but it&apos;s annoying.</p>
+<h2 id="1-youll-need-a-tls-certificate">1. You&apos;ll need a TLS certificate.</h2>
+<p>There are a great many ways to get a certificate; <a href="https://www.letsencrypt.org" target="_blank">Let&apos;s Encrypt</a> is a good option if you&apos;re not already working with something else. </p>
+<p>Note that requesting a certificate <em>requires</em> a <code>Common Name</code> (<code>CN</code>) for your Ambassador. The <code>CN</code> becomes very important when you try to use HTTPS in practice: if the <code>CN</code> does not match the DNS name you use to reach the Ambassador, most TLS libraries will refuse to make the connection. So use a DNS name for the <code>CN</code>, and in step 2 make sure everything matches.</p>
+<h2 id="2-youll-need-a-dns-name">2. You&apos;ll need a DNS name.</h2>
+<p>As noted above, the DNS name must match the <code>CN</code> in the certificate. The simplest way to manage this is to create an <code>ambassador</code> Kubernetes service up front, before you do anything else, so that you can point DNS to whatever Kubernetes gives you for it -- then don&apos;t delete the <code>ambassador</code> service, even if you later need to update it or delete and recreate the <code>ambassador</code> deployment.</p>
+<pre><code class="lang-shell">kubectl apply -f https://www.getambassador.io/yaml/ambassador/ambassador-https.yaml
+</code></pre>
+<p>will create a minimal <code>ambassador</code> service for this purpose; you can then use its external appearance to configure either a <code>CNAME</code> or an <code>A</code> record in DNS. Make sure that there&apos;s a matching <code>PTR</code> record, too.</p>
+<p>It&apos;s OK to include annotations on the <code>ambassador</code> service at this point, if you need to configure additional TLS options (see below for more on this).</p>
+<h2 id="3-youll-need-to-store-the-certificate-in-a-kubernetes-secret">3. You&apos;ll need to store the certificate in a Kubernetes <code>secret</code>.</h2>
+<p>Create a Kubernetes <code>secret</code> named <code>ambassador-certs</code>:</p>
+<pre><code class="lang-shell">kubectl create secret tls ambassador-certs --cert=$FULLCHAIN_PATH --key=$PRIVKEY_PATH
+</code></pre>
+<p>where <code>$FULLCHAIN_PATH</code> is the path to a single PEM file containing the certificate chain for your cert (including the certificate for your Ambassador and all relevant intermediate certs -- this is what Let&apos;s Encrypt calls <code>fullchain.pem</code>), and <code>$PRIVKEY_PATH</code> is the path to the corresponding private key.</p>
+<p>When Ambassador starts, it will notice the <code>ambassador-certs</code> secret and turn TLS on.</p>
+<p><strong>Important.</strong> If you&apos;ve already created the <code>ambassador</code> deployment in step 2 or you&apos;re adding TLS termination to an existing deployment, you <strong>MUST</strong> restart it. Ambassador looks for the <code>ambassador-certs</code> when it starts and only watches service changes later on (<a href="https://github.com/datawire/ambassador/issues/474" target="_blank">#474</a>). If high availability is not an issue, simply delete the <code>ambassador</code> pods (after a short downtime, the deployment will start new pods for you):</p>
+<pre><code class="lang-shell">kubectl delete pods -l service=ambassador
+</code></pre>
+<p>To ensure high availability, you can force a no-op rolling update (<a href="https://github.com/kubernetes/kubernetes/issues/27081" target="_blank">https://github.com/kubernetes/kubernetes/issues/27081</a>):</p>
+<pre><code class="lang-shell">kubectl patch deployment ambassador -p &quot;{\&quot;spec\&quot;:{\&quot;template\&quot;:{\&quot;metadata\&quot;:{\&quot;annotations\&quot;:{\&quot;date\&quot;:\&quot;`date +&apos;%s&apos;`\&quot;}}}}}&quot;
+</code></pre>
+<h5 id="configuring-using-a-user-defined-secret">Configuring using a user defined secret</h5>
+<p>If you do not wish to use a secret named <code>ambassador-certs</code>, then you can tell Ambassador to use your own secret. This can be particularly useful if you want to use different secrets for different Ambassador deployments.</p>
+<p>Create the secret -</p>
+<pre><code class="lang-shell">kubectl create secret tls user-secret --cert=$FULLCHAIN_PATH --key=$PRIVKEY_PATH
+</code></pre>
+<p>And then, configure Ambassador&apos;s TLS module like the following -</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> ambassador/v0
+<span class="hljs-attr">kind:</span>  Module
+<span class="hljs-attr">name:</span>  tls
+<span class="hljs-attr">config:</span>
+<span class="hljs-attr">  server:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">    secret:</span> user-secret
+</code></pre>
+<p>This will make Ambassador load a secret called <code>user-secret</code> to configure TLS termination.</p>
+<p>Note: If <code>ambassador-certs</code> is present in the cluster and the TLS module is configured to load a custom secret, then <code>ambassador-certs</code> will take precedence, and the custom secret will be ignored.</p>
+<h2 id="4-you-may-need-to-configure-other-ambassador-tls-options">4. You may need to configure other Ambassador TLS options.</h2>
+<p>If you don&apos;t need anything else, you&apos;re good to go.</p>
+<p>However, you may also configure other options using Ambassador&apos;s <code>tls</code> module:</p>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> ambassador/v0
+<span class="hljs-attr">kind:</span>  Module
+<span class="hljs-attr">name:</span>  tls
+<span class="hljs-attr">config:</span>
+  <span class="hljs-comment"># The &apos;server&apos; block configures TLS termination. &apos;enabled&apos; is the only</span>
+  <span class="hljs-comment"># required element.</span>
+<span class="hljs-attr">  server:</span>
+    <span class="hljs-comment"># If &apos;enabled&apos; is not True, TLS termination will not happen.</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">True</span>
+
+    <span class="hljs-comment"># If you set &apos;redirect_cleartext_from&apos; to a port number, HTTP traffic </span>
+    <span class="hljs-comment"># to that port will be redirected to HTTPS traffic. Typically you would</span>
+    <span class="hljs-comment"># use port 80, of course.</span>
+    <span class="hljs-comment"># redirect_cleartext_from: 80</span>
+
+    <span class="hljs-comment"># These are optional. They should not be present unless you are using</span>
+    <span class="hljs-comment"># a custom Docker build to install certificates onto the container</span>
+    <span class="hljs-comment"># filesystem, in which case YOU WILL STILL NEED TO SET enabled: True</span>
+    <span class="hljs-comment"># above.</span>
+    <span class="hljs-comment">#</span>
+    <span class="hljs-comment"># cert_chain_file: /etc/certs/tls.crt   # remember to set enabled!</span>
+    <span class="hljs-comment"># private_key_file: /etc/certs/tls.key  # remember to set enabled!</span>
+
+    <span class="hljs-comment"># Enable TLS ALPN protocol, typically HTTP2 to negotiate it with </span>
+    <span class="hljs-comment"># HTTP2 clients over TLS.</span>
+    <span class="hljs-comment"># This must be set to be able to use grpc over TLS.</span>
+    <span class="hljs-comment"># alpn_protocols: h2</span>
+
+  <span class="hljs-comment"># The &apos;client&apos; block configures TLS client-certificate authentication.</span>
+  <span class="hljs-comment"># &apos;enabled&apos; is the only required element.</span>
+<span class="hljs-attr">  client:</span>
+    <span class="hljs-comment"># If &apos;enabled&apos; is not True, TLS client-certificate authentication will</span>
+    <span class="hljs-comment"># not happen.</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">False</span>
+
+    <span class="hljs-comment"># If &apos;cert_required&apos; is True, TLS client certificates will be required</span>
+    <span class="hljs-comment"># for every connection.</span>
+    <span class="hljs-comment"># cert_required: False</span>
+
+    <span class="hljs-comment"># This is optional. It should not be present unless you are using</span>
+    <span class="hljs-comment"># a custom Docker build to install certificates onto the container</span>
+    <span class="hljs-comment"># filesystem, in which case YOU WILL STILL NEED TO SET enabled: True</span>
+    <span class="hljs-comment"># above.</span>
+    <span class="hljs-comment"># </span>
+    <span class="hljs-comment"># cacert_chain_file: /etc/cacert/tls.crt  # remember to set enabled!</span>
+</code></pre>
+<p>Of these, <code>redirect_cleartext_from</code> is the most likely to be relevant: to make Ambassador redirect HTTP traffic on port 80 to HTTPS on port 443, you <em>must</em> use the <code>tls</code> module:</p>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> ambassador/v0
+<span class="hljs-attr">kind:</span>  Module
+<span class="hljs-attr">name:</span>  tls
+<span class="hljs-attr">config:</span>
+<span class="hljs-attr">  server:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">    redirect_cleartext_from:</span> <span class="hljs-number">80</span>
+</code></pre>
+<p>is the minimal YAML to do this.</p>
+<p>If you need a <code>tls</code> module, it&apos;s simplest to include it as an <code>annotation</code> on the <code>ambassador</code> service itself. </p>
+<h2 id="certificate-manager">Certificate Manager</h2>
+<p>Jetstack&apos;s <a href="https://github.com/jetstack/cert-manager" target="_blank">cert-manager</a> lets you easily provision and manage TLS certificates on Kubernetes. No special configuration is required to use Ambassador with <code>cert-manager</code>.</p>
+<p>Once <code>cert-manager</code> is running and you have successfully created the issuer, you can request a certificate such as the following:</p>
+<pre><code>apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: cloud-foo-com
+  namespace: default
+spec:
+  secretName: ambassador-certs
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: cloud.foo.com
+  dnsNames:
+  - cloud.foo.com
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+      - cloud.foo.com
+</code></pre><p>Note the <code>secretName</code> line above. When the certificate has been stored in the secret, restart Ambasador to pick up the new certificate.</p>
+
+                                
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="grpc.html" class="navigation navigation-prev " aria-label="Previous page: Use gRPC with Ambassador">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="with-istio.html" class="navigation navigation-next " aria-label="Next page: Istio and Ambassador">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TLS Termination","level":"4.5","depth":1,"next":{"title":"Istio and Ambassador","level":"4.6","depth":1,"path":"user-guide/with-istio.md","ref":"user-guide/with-istio.md","articles":[]},"previous":{"title":"Use gRPC with Ambassador","level":"4.4","depth":1,"path":"user-guide/grpc.md","ref":"user-guide/grpc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["gtm","anchorjs"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-TPMQ838","virtualPageViews":true},"search":{},"layout":{"footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{"selector":"h2,h3,h4,h5","placement":"right","visible":"always","truncate":64,"ariaLabel":"Anchor"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INDEX.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ambassador: open source API Gateway for microservices and Kubernetes","gitbook":"*"},"file":{"path":"user-guide/tls-termination.md","mtime":"2020-08-25T18:44:25.448Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-14T18:10:30.972Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-gtm/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="/js/datawire-breadcrumb.js" type="text/javascript"></script>
+
+    </body>
+</html>
+

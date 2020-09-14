@@ -1,0 +1,1012 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Request Headers · Ambassador: open source API Gateway for microservices and Kubernetes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rewrites.html" />
+    
+    
+    <link rel="prev" href="redirects.html" />
+    
+
+    </head>
+    <body>
+        
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TPMQ838" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TPMQ838');
+    </script>
+    
+<div class="book">
+    <div class="book-summary">
+        
+<a href="/" class="logo__link">
+    <img class="logo" src="/images/ambassador-logo.svg" alt="logo">
+</a>
+
+
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="https://blog.getambassador.io">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../about/why-ambassador.html">
+            
+                <a href="../about/why-ambassador.html">
+            
+                    
+                    Why Ambassador?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../about/features-and-benefits.html">
+            
+                <a href="../about/features-and-benefits.html">
+            
+                    
+                    Features and Benefits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../user-guide/install.html">
+            
+                <a href="../user-guide/install.html">
+            
+                    
+                    Installing Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../user-guide/getting-started.html">
+            
+                <a href="../user-guide/getting-started.html">
+            
+                    
+                    Kubernetes (YAML)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../user-guide/helm.html">
+            
+                <a href="../user-guide/helm.html">
+            
+                    
+                    Kubernetes (Helm)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../about/quickstart.html">
+            
+                <a href="../about/quickstart.html">
+            
+                    
+                    Docker Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../user-guide/docker-compose.html">
+            
+                <a href="../user-guide/docker-compose.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../concepts/developers.html">
+            
+                <a href="../concepts/developers.html">
+            
+                    
+                    Decentralized configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../concepts/architecture.html">
+            
+                <a href="../concepts/architecture.html">
+            
+                    
+                    Ambassador Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/envoy-vs-nginx-vs-haproxy-why-the-open-source-ambassador-api-gateway-chose-envoy-23826aed79ef">
+            
+                    
+                    Why Ambassador uses Envoy Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../about/microservices-api-gateways.html">
+            
+                <a href="../about/microservices-api-gateways.html">
+            
+                    
+                    Microservices API Gateways
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../concepts/using-ambassador-in-org.html">
+            
+                <a href="../concepts/using-ambassador-in-org.html">
+            
+                    
+                    Using Ambassador in your organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../user-guide/auth-tutorial.html">
+            
+                <a href="../user-guide/auth-tutorial.html">
+            
+                    
+                    Adding Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../user-guide/rate-limiting-tutorial.html">
+            
+                <a href="../user-guide/rate-limiting-tutorial.html">
+            
+                    
+                    Adding Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../user-guide/tracing-tutorial.html">
+            
+                <a href="../user-guide/tracing-tutorial.html">
+            
+                    
+                    Adding Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../user-guide/grpc.html">
+            
+                <a href="../user-guide/grpc.html">
+            
+                    
+                    Use gRPC with Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../user-guide/tls-termination.html">
+            
+                <a href="../user-guide/tls-termination.html">
+            
+                    
+                    TLS Termination
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../user-guide/with-istio.html">
+            
+                <a href="../user-guide/with-istio.html">
+            
+                    
+                    Istio and Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <a target="_blank" href="https://blog.getambassador.io/howto/home">
+            
+                    
+                    More guides
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="configuration.html">
+            
+                <a href="configuration.html">
+            
+                    
+                    Configuring Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="modules.html">
+            
+                <a href="modules.html">
+            
+                    
+                    Core Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="core/tls.html">
+            
+                <a href="core/tls.html">
+            
+                    
+                    TLS and X-Forwarded-Proto
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="mappings.html">
+            
+                <a href="mappings.html">
+            
+                    
+                    Configuring Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="canary.html">
+            
+                <a href="canary.html">
+            
+                    
+                    Canary Releases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="cors.html">
+            
+                <a href="cors.html">
+            
+                    
+                    Cross Origin Resource Sharing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="override.html">
+            
+                <a href="override.html">
+            
+                    
+                    Custom Envoy config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="headers.html">
+            
+                <a href="headers.html">
+            
+                    
+                    Header-based routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.5" data-path="host.html">
+            
+                <a href="host.html">
+            
+                    
+                    Host Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.6" data-path="rate-limits.html">
+            
+                <a href="rate-limits.html">
+            
+                    
+                    Rate Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.7" data-path="redirects.html">
+            
+                <a href="redirects.html">
+            
+                    
+                    Redirects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.2.8" data-path="add_request_headers.html">
+            
+                <a href="add_request_headers.html">
+            
+                    
+                    Request Headers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.9" data-path="rewrites.html">
+            
+                <a href="rewrites.html">
+            
+                    
+                    Rewrites
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.10" data-path="shadowing.html">
+            
+                <a href="shadowing.html">
+            
+                    
+                    Traffic Shadowing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="services/services.html">
+            
+                <a href="services/services.html">
+            
+                    
+                    External Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="services/auth-service.html">
+            
+                <a href="services/auth-service.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="services/rate-limit-service.html">
+            
+                <a href="services/rate-limit-service.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.3" data-path="services/tracing-service.html">
+            
+                <a href="services/tracing-service.html">
+            
+                    
+                    Tracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="advanced.html">
+            
+                <a href="advanced.html">
+            
+                    
+                    Advanced configuration topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="running.html">
+            
+                <a href="running.html">
+            
+                    
+                    Running Ambassador
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="diagnostics.html">
+            
+                <a href="diagnostics.html">
+            
+                    
+                    Diagnostics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="ambassador-with-aws.html">
+            
+                <a href="ambassador-with-aws.html">
+            
+                    
+                    Ambassador with AWS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="upgrading.html">
+            
+                <a href="upgrading.html">
+            
+                    
+                    Upgrading Ambassador
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="statistics.html">
+            
+                <a href="statistics.html">
+            
+                    
+                    Statistics and Monitoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Developers</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/BUILDING.md">
+            
+                    
+                    Building Ambassador (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/blob/master/CHANGELOG.md">
+            
+                    
+                    Changelog (GitHub)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Need Help?</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <a target="_blank" href="https://d6e.co/slack">
+            
+                    
+                    Ask on Slack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <a target="_blank" href="https://github.com/datawire/ambassador/issues/new">
+            
+                    
+                    File a GitHub Issue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" >
+            
+                <a target="_blank" href="https://www.datawire.io">
+            
+                    
+                    Visit Datawire.io
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Request Headers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+<a id="datawire-breadcrumb" href="https://datawire.io/learn/open-source-docs">
+    ← Back to Datawire Open Source Documentation
+</a>
+
+                                <h2 id="add-request-headers">Add Request Headers</h2>
+<p>Ambassador can add a dictionary of HTTP headers that can be added to each request that is passed to a service.</p>
+<h2 id="the-addrequestheaders-annotation">The <code>add_request_headers</code> annotation</h2>
+<p>The <code>add_request_headers</code> attribute is a dictionary of <code>header</code>: <code>value</code> pairs. Envoy dynamic values <code>%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%</code> and <code>%PROTOCOL%</code> are supported, in addition to static values.</p>
+<h2 id="a-basic-example">A basic example</h2>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> ambassador/v0
+<span class="hljs-attr">kind:</span>  Mapping
+<span class="hljs-attr">name:</span>  qotm_mapping
+<span class="hljs-attr">prefix:</span> /qotm/
+<span class="hljs-attr">add_request_headers:</span>
+<span class="hljs-attr">  x-test-proto:</span> <span class="hljs-string">&quot;%PROTOCOL%&quot;</span>
+<span class="hljs-attr">  x-test-ip:</span> <span class="hljs-string">&quot;%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%&quot;</span>
+<span class="hljs-attr">  x-test-static:</span> This is a test header
+<span class="hljs-attr">service:</span> qotm
+</code></pre>
+<p>will add the protocol, client IP, and a static header to <code>/qotm/</code>.</p>
+
+                                
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="redirects.html" class="navigation navigation-prev " aria-label="Previous page: Redirects">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rewrites.html" class="navigation navigation-next " aria-label="Next page: Rewrites">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Request Headers","level":"5.1.2.8","depth":3,"next":{"title":"Rewrites","level":"5.1.2.9","depth":3,"path":"reference/rewrites.md","ref":"reference/rewrites.md","articles":[]},"previous":{"title":"Redirects","level":"5.1.2.7","depth":3,"path":"reference/redirects.md","ref":"reference/redirects.md","articles":[]},"dir":"ltr"},"config":{"plugins":["gtm","anchorjs"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-TPMQ838","virtualPageViews":true},"search":{},"layout":{"footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{"selector":"h2,h3,h4,h5","placement":"right","visible":"always","truncate":64,"ariaLabel":"Anchor"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INDEX.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Ambassador: open source API Gateway for microservices and Kubernetes","gitbook":"*"},"file":{"path":"reference/add_request_headers.md","mtime":"2020-08-25T18:44:25.444Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-14T18:10:30.972Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-gtm/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="/js/datawire-breadcrumb.js" type="text/javascript"></script>
+
+    </body>
+</html>
+
