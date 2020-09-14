@@ -55,8 +55,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/ambassador-v0.40.0-docs/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/ambassador-v0.40.0-docs/images/favicon.ico" type="image/x-icon">
 
     
     <link rel="next" href="rate-limit-service.html" />
@@ -88,7 +88,7 @@
     <div class="book-summary">
         
 <a href="/" class="logo__link">
-    <img class="logo" src="/images/ambassador-logo.svg" alt="logo">
+    <img class="logo" src="/ambassador-v0.40.0-docs/images/ambassador-logo.svg" alt="logo">
 </a>
 
 
@@ -926,7 +926,7 @@
 <p>If <code>tls</code> is present with a value that is not <code>true</code>, the value is assumed to be the name of a defined TLS context, which will determine the certificate presented to the upstream service. TLS context handling is a beta feature of Ambassador at present; please <a href="https://d6e.co/slack" target="_blank">contact us on Slack</a> if you need to specify TLS origination certificates.</p>
 <h2 id="the-external-authentication-service">The External Authentication Service</h2>
 <p>The external auth service receives information about every request through Ambassador, and must indicate whether the request is to be allowed, or not. If not, the external auth service provides the response which is to be handed back to the client. The control flow for Authentication is shown below.</p>
-<p><img src="../../images/auth-flow.png" alt="Authentication flow"></p>
+<p><img src="../../ambassador-v0.40.0-docs/images/auth-flow.png" alt="Authentication flow"></p>
 <h3 id="the-request">The Request</h3>
 <p>For every incoming request, the HTTP <code>method</code> and headers are forwarded to the auth service. Only two changes are made:</p>
 <ol>

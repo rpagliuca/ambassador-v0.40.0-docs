@@ -347,7 +347,7 @@ header {
 }
 
 #home-page #hero {
-    background: url('/images/penguin-background.svg') no-repeat right bottom;
+    background: url('/ambassador-v0.40.0-docs/images/penguin-background.svg') no-repeat right bottom;
     max-width: 1120px;
     margin: 0 auto -90px;
     padding: 60px 30px 250px;
@@ -661,11 +661,11 @@ footer {
     text-indent: -999999px;
 }
 .slick-prev {
-    background: url('/images/left-arrow.svg');
+    background: url('/ambassador-v0.40.0-docs/images/left-arrow.svg');
     left: -50px;
 }
 .slick-next {
-    background: url('/images/right-arrow.svg');
+    background: url('/ambassador-v0.40.0-docs/images/right-arrow.svg');
     right: -50px;
 }
 .quotes.content-box {
@@ -762,7 +762,7 @@ a.card:hover {
 }
 @media (min-width: 768px) {
     #global-features {
-        background-image: url('/images/global-features-bg.svg');
+        background-image: url('/ambassador-v0.40.0-docs/images/global-features-bg.svg');
         background-repeat: no-repeat;
         background-position: 100% 50px;
         padding-top: 50px;
@@ -771,7 +771,7 @@ a.card:hover {
 @media (min-width: 768px) {
     #self-service-features {
         margin-top: -65px;
-        background-image: url('/images/self-service-features-bg.svg');
+        background-image: url('/ambassador-v0.40.0-docs/images/self-service-features-bg.svg');
         background-repeat: no-repeat;
         padding-top: 175px;
     }
